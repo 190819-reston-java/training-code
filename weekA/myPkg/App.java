@@ -12,7 +12,20 @@ public class App {
 		
 		//we'll let the user set the temperature of their drink starting off
 		Drink usersDrink = new Drink();
-		usersDrink.setTemperature(args[0]);
+		
+		try {
+			usersDrink.setTemperature(args[0]);
+		} catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("Usage: App <starting-temperature>");
+			// This quits the program:
+			System.exit(0);
+		// this should be replaced with a custom Exception.
+		} catch(RuntimeException e) {
+			System.out.println(e);
+			System.out.println("Using default temperature");
+		} finally {
+			System.out.println("This always runs unless system exits");
+		}
 		
 		System.out.println(usersDrink.getTemperature());
 		usersDrink.getWarm();

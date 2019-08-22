@@ -17,8 +17,8 @@ public class Drink extends AbstractDrink {
 			inputTemperature.equals("too hot!")) {
 				this.temperature = inputTemperature;
 			} else {
-				//we'll come back to this and make it better
-				System.out.println("invalid temperature");
+				throw new RuntimeException("Invalid temperature. Valid temperatures: " +
+				 " 'refreshing', 'lukewarm', 'toasty', 'too hot!' ");
 			}
 	}
 	

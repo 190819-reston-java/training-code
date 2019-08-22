@@ -1,0 +1,4 @@
+The only command you should use on this 
+repository is 'git pull'
+
+:)

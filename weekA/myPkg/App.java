@@ -13,6 +13,7 @@ public class App {
 		//we'll let the user set the temperature of their drink starting off
 		Drink usersDrink = new Drink();
 		
+		// try-catch lets us do exception handling in Java
 		try {
 			usersDrink.setTemperature(args[0]);
 		} catch(ArrayIndexOutOfBoundsException e) {

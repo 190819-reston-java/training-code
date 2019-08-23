@@ -1,8 +1,13 @@
 package com.revature.stringproblems;
 
+import java.util.Arrays;
+
 public class EvaluationService {
 	
 	public static void main(String[] args) {
+		System.out.println(acronym("      Portable    Network  Graphics"));
+		System.out.println(getScrabbleScore("Cabbage"));
+		System.out.println(cleanPhoneNumber("1 (634) 554 - 4928"));
 
 	}
 	
@@ -14,9 +19,14 @@ public class EvaluationService {
 	 * @param phrase
 	 * @return
 	 */
-	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public static String acronym(String phrase) {
+		String out = "";
+		for(String word : phrase.trim().split(" ")) {
+			if(word.length()>0) {
+				out = out + word.charAt(0);
+			}
+		}
+		return out.toUpperCase();
 	}
 
 	/**
@@ -34,9 +44,25 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
-	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+	public static int getScrabbleScore(String string) {
+		int out = 0;
+		
+		for(String character : string.toUpperCase().split("")) {
+			switch(character.charAt(0)) {
+			case 'A':
+			case 'E':
+			case 'I':
+				out += 1;
+				break;
+			case 'D':
+			case 'G':
+			case 'C':
+				out += 3;
+				break;
+			}
+		}
+		
+		return out;
 	}
 
 	/**
@@ -70,9 +96,23 @@ public class EvaluationService {
 	 * Note: As this exercise only deals with telephone numbers used in
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
-	public String cleanPhoneNumber(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public static String cleanPhoneNumber(String string) {
+		String cleanNumber = "";
+		
+		String[] validDigits = {"0","1","2","3","4","5","6","7","8","9"};
+		Arrays.sort(validDigits);
+		
+		for(String character : string.split("")) {
+			if (Arrays.binarySearch(validDigits, character) >= 0) {
+				cleanNumber = cleanNumber + character;
+			}
+		}
+		
+		if(cleanNumber.length() == 11) {
+			return cleanNumber.substring(1);
+		} else {
+			return cleanNumber;
+		}
 	}
 
 }

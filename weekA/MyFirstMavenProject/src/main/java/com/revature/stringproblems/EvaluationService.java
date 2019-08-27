@@ -8,6 +8,8 @@ public class EvaluationService {
 		System.out.println(acronym("      Portable    Network  Graphics"));
 		System.out.println(getScrabbleScore("Cabbage"));
 		System.out.println(cleanPhoneNumber("1 (634) 554 - 4928"));
+		
+		System.out.println(cheekyStringLength("hello!"));
 
 	}
 	
@@ -26,6 +28,7 @@ public class EvaluationService {
 				out = out + word.charAt(0);
 			}
 		}
+		
 		return out.toUpperCase();
 	}
 
@@ -113,6 +116,19 @@ public class EvaluationService {
 		} else {
 			return cleanNumber;
 		}
+	}
+	
+	public static int cheekyStringLength(String str) {
+		int length = 0;
+		while(true) {
+			try {
+				str.charAt(length);
+				length++;
+			} catch (Exception e) {
+				break;
+			}
+		}
+		return length;
 	}
 
 }

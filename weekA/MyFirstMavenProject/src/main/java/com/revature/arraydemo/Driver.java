@@ -54,6 +54,7 @@ public class Driver {
 				System.out.println(myMultiArray[i][j]);
 			}
 		}
+		
 		//enhanced for loop version: (for-each loop)
 		for(int[] innerArray : myMultiArray) {
 			for(int num : innerArray) {

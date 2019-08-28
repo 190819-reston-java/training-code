@@ -16,7 +16,8 @@ public abstract class Bird {
 		this.name = name;
 		this.color = color;
 		this.feathered = feathered;
-		this.weight = weight;
+		// we want to apply our setter logic here as well:
+		this.setWeight(weight);
 	}
 	
 	public Bird(String name, String color, boolean feathered) {
@@ -76,6 +77,9 @@ public abstract class Bird {
 	}
 
 	public void setWeight(long weight) {
+		if(weight < 0) {
+			throw new NegativeMassException();
+		}
 		this.weight = weight;
 	}
 	

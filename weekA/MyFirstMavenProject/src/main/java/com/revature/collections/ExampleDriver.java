@@ -88,14 +88,14 @@ public class ExampleDriver {
 			long weight = sc.nextLong();
 			
 			sparrowList.add(new Sparrow(name, color, true, weight));
+			System.out.println("Success!  Try viewing the flock.");
 		} catch (NegativeMassException e) {
 			System.out.println("Cannot have negative weight!");
-			e.printStackTrace();
 		} catch (Exception e) {
 			System.out.println("Mysterious problems -- exiting!");
 			System.exit(1);
 		}
-		System.out.println("Success!  Try viewing the flock.");
+		
 	} 
 
 }

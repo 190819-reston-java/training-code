@@ -47,6 +47,10 @@ public abstract class Bird {
 	public abstract void sitStill();
 	
 	public abstract void tryEat();
+	
+	public abstract void tryEat(Worm w);
+	
+	public abstract void tryEat(Carrion c);
 
 	public String getName() {
 		return name;

@@ -6,12 +6,17 @@ import org.junit.Test;
 //gets the static members of the Assert class
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+
 public class CalculatorTest {
-	
-	//Calculator c = new Calculator();
 	
 	//Writing JUnit tests we need annotations and assert method
 	// the @Test annotation is the most important
+	
+	static Object myNeededObject;
 	
 	@Test
 	public void addTwoArgsFourAndSix() {
@@ -29,6 +34,7 @@ public class CalculatorTest {
 	@Test
 	public void sumOfTenNumbers() {
 		int result = Calculator.add(" ", 1,4,3,5,67,4,2,3,4,9);
+		assertTrue(true);
 		assertEquals(result, 102);
 	}
 	
@@ -42,7 +48,42 @@ public class CalculatorTest {
 	//This test will pass because our divide() method throws the expected Exception
 	@Test(expected = ArithmeticException.class)
 	public void cantDivideByZero() {
-		Calculator.divide(3, 0);
+		Calculator.divide(4, 0);
+	}
+	
+	//This test will fail because our divide method is bad
+	@Test
+	public void divideThirtyIntoThree() {
+		assertTrue(Calculator.divide(30, 3) == 10);
+	}
+	
+	//Other annotations: setup and teardown with @Before and @After
+	
+	@Before
+	public void setUp() {
+		System.out.println("Creating necessary objects for test");
+		myNeededObject = new Object();
+	}
+	
+	@After
+	public void tearDown() {
+		System.out.println("Getting rid of unneeded objects after test");
+		myNeededObject = null;
+	}
+	
+	//Before and After are better to use because it keeps your
+	// tests independent
+	//But if you're hurting for processing power, use BeforeClass and AfterClass
+	// each of those run only once -- at the very beginning and at the very end
+	
+	@BeforeClass
+	public static void setUpOnlyOnceAtBeginning() {
+		System.out.println("Before Class");
+	}
+	
+	@AfterClass
+	public static void tearDownOnlyOneAtEnd() {
+		System.out.println("After Class");
 	}
 
 }

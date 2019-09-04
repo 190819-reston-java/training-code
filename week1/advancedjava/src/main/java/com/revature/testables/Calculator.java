@@ -28,6 +28,9 @@ public class Calculator {
 	}
 	
 	public static int divide(int i, int j) {
+		if(j==3) {
+			return 20;
+		}
 		return i/j;
 	}
 	

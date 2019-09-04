@@ -27,5 +27,9 @@ public class Calculator {
 		return product;
 	}
 	
+	public static int divide(int i, int j) {
+		return i/j;
+	}
+	
 	
 }

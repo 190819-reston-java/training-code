@@ -39,7 +39,9 @@ public class FunctionalMain {
 		
 		//Compare radius using a lambda:
 		SortedSet<CanOfSoda> radiusSortedSoda;
-		radiusSortedSoda = new TreeSet<CanOfSoda>((CanOfSoda s1, CanOfSoda s2) -> {return s1.radius - s2.radius;});
+		radiusSortedSoda = new TreeSet<CanOfSoda>((CanOfSoda s1, CanOfSoda s2) -> {
+			return s1.radius - s2.radius;
+		});
 		
 		radiusSortedSoda.addAll(sodaList);
 		System.out.println(radiusSortedSoda);
@@ -53,7 +55,20 @@ public class FunctionalMain {
 				.filter((CanOfSoda s)->{return true;})
 				//lets actually filter now : even number of calories
 				.filter((CanOfSoda s)->{return s.calories % 2 == 0;})
+				//do something with each CanOfSoda that reaches this point in the stream
+				// and dont return a stream, so it ends here!
 				.forEach((CanOfSoda s)->{System.out.println(s);});
+		
+		radiusSortedSoda.stream()
+				//only double size if flavor is Blue
+				.map((CanOfSoda s)->{
+					if(s.flavor.equals("Blue")) {
+						return new CanOfSoda(s.flavor, 2*s.height, s.radius, s.fizzy, 2*s.calories, s.coloring, s.ingredients);
+					}
+					return s;
+					})
+				.
+				
 		
 	}
 

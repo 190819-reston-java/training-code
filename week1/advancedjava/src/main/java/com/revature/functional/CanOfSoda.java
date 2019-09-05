@@ -31,9 +31,8 @@ public class CanOfSoda {
 
 	@Override
 	public String toString() {
-		return "CanOfSoda [flavor=" + flavor + ", height=" + height + ", radius=" + radius + ", fizzy=" + fizzy
-				+ ", calories=" + calories + ", coloring=" + coloring + ", ingredients=" + Arrays.toString(ingredients)
-				+ "]";
+		return "soda: [flavor=" + flavor + ", height=" + height + ", radius=" + radius
+				+ ", calories=" + calories + ", coloring=" + coloring + "]"; 
 	}
 	
 	

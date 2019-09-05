@@ -33,7 +33,7 @@ public class CalculatorTest {
 	
 	@Test
 	public void sumOfTenNumbers() {
-		int result = Calculator.add(" ", 1,4,3,5,67,4,2,3,4,9);
+		int result = Calculator.add("Mysterious Space", 1,4,3,5,67,4,2,3,4,9);
 		assertTrue(true);
 		assertEquals(result, 102);
 	}

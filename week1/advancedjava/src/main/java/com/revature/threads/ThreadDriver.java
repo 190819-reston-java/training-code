@@ -8,7 +8,7 @@ public class ThreadDriver {
 	}
 
 	private static void singletonThreadDemo() throws InterruptedException {
-		Thread[] threadArray = new Thread[12];
+		Thread[] threadArray = new Thread[10];
 		
 		for(int i=0; i<threadArray.length; i++) {
 			threadArray[i] = new Thread(new MyRunnable("Runnable " + i));

@@ -1,6 +1,10 @@
 package com.revature.threads;
 
+import java.io.ObjectInputStream.GetField;
+
 public class SysoutControlSingleton {
+	
+	private int myField = 0;
 	
 	//Steps to making a Singleton in Java: private constructor
 	private SysoutControlSingleton() {}
@@ -20,6 +24,30 @@ public class SysoutControlSingleton {
 			//make your program (Thread) wait
 			Thread.sleep(1);
 		}
+	}
+	
+	public int getMyField() {
+		return myField;
+	}
+
+	public void setMyField(int myField) {
+		this.myField = myField;
+	}
+
+	public synchronized void incrementField() {
+		int newField = getMyField() + 1;
+		try {
+			Thread.sleep((int) (Math.random()*100));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		setMyField(newField);
+		
+	}
+	
+	public void printField() {
+		System.out.println(this.myField);
 	}
 
 }

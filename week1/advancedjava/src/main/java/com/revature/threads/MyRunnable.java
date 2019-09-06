@@ -11,8 +11,12 @@ public class MyRunnable implements Runnable {
 	@Override
 	public void run() {
 		SysoutControlSingleton scs = SysoutControlSingleton.getInstance();
-		for(int i=1; i<10; i++) {
-			scs.printSomething(this.name + " : " + i);
+		System.out.println(this.name + " with Singleton: " + scs);
+		try {
+			scs.printSomething(this.name, 10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

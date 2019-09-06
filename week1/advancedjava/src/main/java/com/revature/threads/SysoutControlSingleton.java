@@ -14,8 +14,12 @@ public class SysoutControlSingleton {
 		return scs;
 	}
 	
-	public synchronized void printSomething(String s) {
-		System.out.println(s);
+	public synchronized void printSomething(String s, int loops) throws InterruptedException {
+		for(int i=0; i<loops; i++) {
+			System.out.println(s + " : " + i);
+			//make your program (Thread) wait
+			Thread.sleep(1);
+		}
 	}
 
 }

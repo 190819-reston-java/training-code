@@ -18,6 +18,9 @@ public class Driver {
 		for(Player p : playerDAO.getPlayers()) {
 			System.out.println(p);
 		}
+		
+		System.out.println(playerDAO.getPlayer("Test name 1"));
+		System.out.println(playerDAO.getPlayer(4L));
 
 	}
 

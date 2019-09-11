@@ -14,12 +14,39 @@ import com.revature.utils.StreamCloser;
 
 public class PlayerDAOImplPJDBC implements PlayerDAO {
 
+	/**
+	 * Return a player found via their id, or null if no player is found.
+	 * 
+	 * This is a good example of how your DAO methods should actually look
+	 */
 	@Override
 	public Player getPlayer(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Player player = null;
+		
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String query = "SELECT * FROM players WHERE id = ?;";
+			try (PreparedStatement stmt = conn.prepareStatement(query)) {
+				stmt.setLong(1, id);
+				if (stmt.execute()) {
+					try (ResultSet resultSet = stmt.getResultSet()) {
+						if (resultSet.next()) {
+							player = createPlayerFromRS(resultSet);
+						}
+					}
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return player;
 	}
 
+	/**
+	 * Return a player found via their name, or null if no player is found
+	 * 
+	 * Uses both try-with-resources and StreamCloser for demo reasons
+	 */
 	@Override
 	public Player getPlayer(String name) {
 		ResultSet resultSet = null;
@@ -48,12 +75,7 @@ public class PlayerDAOImplPJDBC implements PlayerDAO {
 				resultSet =  statement.getResultSet();
 				//check for a single row and use it
 				if(resultSet.next()) {
-					player = new Player(
-							resultSet.getLong("id"),
-							resultSet.getString("name"),
-							resultSet.getLong("num"), 
-							resultSet.getString("position"),
-							resultSet.getDouble("batting_average"));
+					player = createPlayerFromRS(resultSet);
 				}
 			}
 			
@@ -67,6 +89,11 @@ public class PlayerDAOImplPJDBC implements PlayerDAO {
 		return player;
 	}
 
+	/**
+	 * Returns a list of all players in the players table
+	 * 
+	 * Written with simple statements to demo them.
+	 */
 	@Override
 	public List<Player> getPlayers() {
 		// Statement and ResultSet (and Connection) interfaces
@@ -91,8 +118,7 @@ public class PlayerDAOImplPJDBC implements PlayerDAO {
 			// loop through ResultSet
 			while (resultSet.next()) {
 				// At each row in the ResultSet, do the following:
-				players.add(new Player(resultSet.getLong("id"), resultSet.getString("name"), resultSet.getLong("num"),
-						resultSet.getString("position"), resultSet.getDouble("batting_average")));
+				players.add(createPlayerFromRS(resultSet));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -118,4 +144,20 @@ public class PlayerDAOImplPJDBC implements PlayerDAO {
 		return false;
 	}
 
+	/**
+	 * Returns a Player object created using a single valid ResultSet row
+	 * 
+	 * @param resultSet
+	 * @return
+	 * @throws SQLException
+	 */
+	private Player createPlayerFromRS(ResultSet resultSet) throws SQLException {
+		return new Player(
+				resultSet.getLong("id"),
+				resultSet.getString("name"),
+				resultSet.getLong("num"), 
+				resultSet.getString("position"),
+				resultSet.getDouble("batting_average"));
+	}
+	
 }

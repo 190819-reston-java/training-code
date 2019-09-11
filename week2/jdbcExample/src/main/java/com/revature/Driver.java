@@ -1,5 +1,6 @@
 package com.revature;
 
+import com.revature.model.Player;
 import com.revature.repositories.PlayerDAO;
 import com.revature.repositories.PlayerDAOImplPJDBC;
 import com.revature.utils.ConnectionUtil;
@@ -11,7 +12,12 @@ public class Driver {
 		
 		PlayerDAO playerDAO = new PlayerDAOImplPJDBC();
 		
-		playerDAO.getPlayers();
+		playerDAO.getPlayers()
+				.forEach((Player p)->{System.out.println(p);});
+		
+		for(Player p : playerDAO.getPlayers()) {
+			System.out.println(p);
+		}
 
 	}
 

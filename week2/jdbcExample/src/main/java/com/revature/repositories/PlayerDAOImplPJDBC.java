@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.revature.model.Player;
 import com.revature.utils.ConnectionUtil;
+import com.revature.utils.StreamCloser;
 
 public class PlayerDAOImplPJDBC implements PlayerDAO {
 
@@ -48,23 +49,22 @@ public class PlayerDAOImplPJDBC implements PlayerDAO {
 			//loop through ResultSet
 			while(resultSet.next()) {
 				//At each row in the ResultSet, do the following:
-				System.out.println(resultSet.getString("name"));
+				players.add(new Player(
+						resultSet.getLong("id"),
+						resultSet.getString("name"),
+						resultSet.getLong("num"), 
+						resultSet.getString("position"),
+						resultSet.getDouble("batting_average"))
+						);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			//close all open resources to prevent memory leak
-			try {
-				resultSet.close();
-				statement.close();
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			StreamCloser.close(resultSet);
+			StreamCloser.close(statement);
+			StreamCloser.close(conn);
 		}
-		
-		
-		
 		
 		return players;
 	}

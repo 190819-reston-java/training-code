@@ -12,7 +12,8 @@ public class PlayerCLI {
 	private static Scanner sc = new Scanner(System.in);
 	
 	//This should go in a Service:
-	private static Player selectedPlayer = null;
+	private static Player selectedPlayer = new Player(
+			0L, "Default", 0L, "C", 0);
 	
 	public static void menu() {
 		Arrays.asList(
@@ -22,6 +23,9 @@ public class PlayerCLI {
 				"2 : select a player",
 				"3 : send player to bat",
 				"4 : exit",
+				"",
+				"Current Selected Player:",
+				selectedPlayer.toString(),
 				"")
 				.forEach((String s)->{System.out.println(s);});
 		
@@ -55,23 +59,49 @@ public class PlayerCLI {
 	private static PlayerDAO playerDAO = new PlayerDAOImplPJDBC();
 
 	private static void sendPlayerToBat() {
-		// TODO Auto-generated method stub
+		System.out.println("Number of pitches? : ");
+		long userInput = Long.parseLong(sc.nextLine());
+		
+		int hitCounter = 0;
+		int missCounter = 0;
+		double avg = selectedPlayer.getBattingAverage();
+		
+		for(int i=0; i<userInput; i++) {
+			if(Math.random() < avg) {
+				hitCounter++;
+				System.out.println("a hit!");
+			} else {
+				missCounter++;
+				System.out.println("missed!");
+			}
+		}
+		
+		double newAvg = ((double) hitCounter) / 
+				((double) (hitCounter + missCounter));
+		
+		selectedPlayer.setBattingAverage(newAvg);
+		
+		playerDAO.updatePlayer(selectedPlayer);
 		
 	}
 
 	private static void changeSelectedPlayer() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Select a player: ");
+		//can throw NumberFormatException, we'll let it die
+		long userInput = Long.parseLong(sc.nextLine());
+		selectedPlayer = playerDAO.getPlayer(userInput);
 	}
 
 	private static void printPlayerNameList() {
-		// TODO Auto-generated method stub
-		
+		for(Player p : playerDAO.getPlayers()) {
+			System.out.println(p.getId() + " : " + p.getName());
+		}
 	}
 
 	private static void printAllPlayerInfo() {
-		// TODO Auto-generated method stub
-		
+		for(Player p : playerDAO.getPlayers()) {
+			System.out.println(p);
+		}
 	}
 
 }

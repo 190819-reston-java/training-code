@@ -15,6 +15,8 @@ public class Driver {
 		playerDAO.getPlayers()
 				.forEach((Player p)->{System.out.println(p);});
 		
+		playerDAO.createPlayer(new Player(0L, "Sammy Sosa", 21L, "RF", 0.4));
+		
 		for(Player p : playerDAO.getPlayers()) {
 			System.out.println(p);
 		}

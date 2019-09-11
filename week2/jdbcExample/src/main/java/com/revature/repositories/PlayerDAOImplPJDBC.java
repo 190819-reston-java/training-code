@@ -132,16 +132,67 @@ public class PlayerDAOImplPJDBC implements PlayerDAO {
 		return players;
 	}
 
+	/**
+	 * Creates a new record in the players table from argument p.
+	 * Note that id is generated, so p.id isn't used.
+	 */
 	@Override
 	public boolean createPlayer(Player p) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		String query = "INSERT INTO players VALUES (DEFAULT, ?, ?, ?, ?);";
+		
+		try {
+			conn = ConnectionUtil.getConnection();
+			stmt = conn.prepareStatement(query);
+			stmt.setString(1, p.getName());
+			stmt.setLong(2, p.getNum());
+			stmt.setString(3, p.getPosition());
+			stmt.setDouble(4, p.getBattingAverage());
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			StreamCloser.close(stmt);
+			StreamCloser.close(conn);
+		}
+		
+		return true;
 	}
 
+	/**
+	 * Updates information in the players table using the fields on
+	 * argument p.  The id determines which record to update.
+	 */
 	@Override
 	public boolean updatePlayer(Player p) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		final String query = "UPDATE players SET name=?, num=?, position=?," + 
+		" batting_average=? WHERE id = ?;";
+		
+		try {
+			conn = ConnectionUtil.getConnection();
+			stmt = conn.prepareStatement(query);
+			stmt.setString(1, p.getName());
+			stmt.setLong(2, p.getNum());
+			stmt.setString(3, p.getPosition());
+			stmt.setDouble(4, p.getBattingAverage());
+			stmt.setLong(5, p.getId());
+			
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			StreamCloser.close(stmt);
+			StreamCloser.close(conn);
+		}
+		
+		return true;
 	}
 
 	/**

@@ -1,3 +1,6 @@
+#Connection creds:
+connection.properties
+
 # Created by https://www.gitignore.io/api/java,maven,eclipse,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=java,maven,eclipse,visualstudiocode
 

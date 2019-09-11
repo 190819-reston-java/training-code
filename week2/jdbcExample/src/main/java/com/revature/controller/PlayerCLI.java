@@ -6,14 +6,12 @@ import java.util.Scanner;
 import com.revature.model.Player;
 import com.revature.repositories.PlayerDAO;
 import com.revature.repositories.PlayerDAOImplPJDBC;
+import com.revature.services.PlayerService;
 
 public class PlayerCLI {
 	
 	private static Scanner sc = new Scanner(System.in);
-	
-	//This should go in a Service:
-	private static Player selectedPlayer = new Player(
-			0L, "Default", 0L, "C", 0);
+	private static PlayerService playerService = new PlayerService();
 	
 	public static void menu() {
 		Arrays.asList(
@@ -22,10 +20,11 @@ public class PlayerCLI {
 				"1 : show all player info",
 				"2 : select a player",
 				"3 : send player to bat",
-				"4 : exit",
+				"4 : modify selected player",
+				"5 : exit",
 				"",
 				"Current Selected Player:",
-				selectedPlayer.toString(),
+				playerService.getSelectedPlayer().toString(),
 				"")
 				.forEach((String s)->{System.out.println(s);});
 		
@@ -40,9 +39,12 @@ public class PlayerCLI {
 			changeSelectedPlayer();
 			break;
 		case "3":
-			sendPlayerToBat();
+			askUserForPitches();
 			break;
 		case "4":
+			askUserForNewPlayerDetails();
+			break;
+		case "5":
 			System.out.println("Exiting. Goodbye!");
 			System.exit(0);
 			break;
@@ -50,56 +52,45 @@ public class PlayerCLI {
 			System.out.println("Input not recognized");
 		}
 		menu();
-		
 	}
 	
-	//These methods ought be in a Service (the Service layer):
-	
-	//This should go in Service as well:
-	private static PlayerDAO playerDAO = new PlayerDAOImplPJDBC();
+	private static void askUserForNewPlayerDetails() {
+		//hacky
+		Player sp = playerService.getSelectedPlayer();
+		
+		System.out.println("New Number? Current: " + sp.getNum());
+		sp.setNum(Long.parseLong(sc.nextLine()));
+		
+		System.out.println("New Position? Current: " + sp.getPosition());
+		sp.setPosition(sc.nextLine());
+		
+		System.out.println("New Batting Average? Current: " + sp.getBattingAverage());
+		sp.setBattingAverage(Double.parseDouble(sc.nextLine()));
 
-	private static void sendPlayerToBat() {
-		System.out.println("Number of pitches? : ");
-		long userInput = Long.parseLong(sc.nextLine());
-		
-		int hitCounter = 0;
-		int missCounter = 0;
-		double avg = selectedPlayer.getBattingAverage();
-		
-		for(int i=0; i<userInput; i++) {
-			if(Math.random() < avg) {
-				hitCounter++;
-				System.out.println("a hit!");
-			} else {
-				missCounter++;
-				System.out.println("missed!");
-			}
-		}
-		
-		double newAvg = ((double) hitCounter) / 
-				((double) (hitCounter + missCounter));
-		
-		selectedPlayer.setBattingAverage(newAvg);
-		
-		playerDAO.updatePlayer(selectedPlayer);
-		
+		playerService.updateSelectedPlayer();
+	}
+	
+
+	private static void askUserForPitches() {
+		System.out.println("How many pitches? : ");
+		playerService.sendPlayerToBat(Long.parseLong(sc.nextLine()));
 	}
 
 	private static void changeSelectedPlayer() {
 		System.out.println("Select a player: ");
 		//can throw NumberFormatException, we'll let it die
 		long userInput = Long.parseLong(sc.nextLine());
-		selectedPlayer = playerDAO.getPlayer(userInput);
+		playerService.changeSelectedPlayer(userInput);
 	}
 
 	private static void printPlayerNameList() {
-		for(Player p : playerDAO.getPlayers()) {
+		for(Player p : playerService.getPlayers()) {
 			System.out.println(p.getId() + " : " + p.getName());
 		}
 	}
 
 	private static void printAllPlayerInfo() {
-		for(Player p : playerDAO.getPlayers()) {
+		for(Player p : playerService.getPlayers()) {
 			System.out.println(p);
 		}
 	}

@@ -101,9 +101,3 @@ WHERE invoice_id IN (
 		WHERE first_name = 'Robert' AND last_name = 'Walter'
 	)
 );
-
-SELECT * FROM (
-	SELECT 'hilo' IN ('hello', 'hi')
-) AS "some_alias_for_subquery";
-
-

@@ -7,12 +7,12 @@ import com.revature.model.Player;
 //DAOs are just Data Access Objects
 // they're used to access data
 /**
- * PlayerDAO retrieves and stores data about Player objects
+ * PlayerDao retrieves and stores data about Player objects
  * 
  * @author Revature
  *
  */
-public interface PlayerDAO {
+public interface PlayerDao {
 	
 	Player getPlayer(long id);
 	
@@ -23,5 +23,10 @@ public interface PlayerDAO {
 	boolean createPlayer(Player p);
 	
 	boolean updatePlayer(Player p);
+	
+	/**
+	 * This method solely exists to demo CallableStatements and should not be used.
+	 */
+	void demoCallableStatement();
 
 }

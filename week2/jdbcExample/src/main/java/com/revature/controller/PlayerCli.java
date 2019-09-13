@@ -4,16 +4,21 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import com.revature.model.Player;
-import com.revature.repositories.PlayerDAO;
-import com.revature.repositories.PlayerDAOImplPJDBC;
+import com.revature.repositories.PlayerDao;
+import com.revature.repositories.PlayerDaoImplPjdbc;
 import com.revature.services.PlayerService;
 
-public class PlayerCLI {
+public class PlayerCli {
 	
-	private static Scanner sc = new Scanner(System.in);
-	private static PlayerService playerService = new PlayerService();
+	public PlayerCli(Scanner scanner, PlayerService playerService) {
+		this.sc = scanner;
+		this.playerService = playerService;
+	}
 	
-	public static void menu() {
+	private Scanner sc;
+	private PlayerService playerService;
+	
+	public void menu() {
 		Arrays.asList(
 				"Welcome to the menu.",
 				"Select an option:",
@@ -54,7 +59,7 @@ public class PlayerCLI {
 		menu();
 	}
 	
-	private static void askUserForNewPlayerDetails() {
+	private void askUserForNewPlayerDetails() {
 		//hacky
 		Player sp = playerService.getSelectedPlayer();
 		
@@ -71,25 +76,25 @@ public class PlayerCLI {
 	}
 	
 
-	private static void askUserForPitches() {
+	private void askUserForPitches() {
 		System.out.println("How many pitches? : ");
 		playerService.sendPlayerToBat(Long.parseLong(sc.nextLine()));
 	}
 
-	private static void changeSelectedPlayer() {
+	private void changeSelectedPlayer() {
 		System.out.println("Select a player: ");
 		//can throw NumberFormatException, we'll let it die
 		long userInput = Long.parseLong(sc.nextLine());
 		playerService.changeSelectedPlayer(userInput);
 	}
 
-	private static void printPlayerNameList() {
+	private void printPlayerNameList() {
 		for(Player p : playerService.getPlayers()) {
 			System.out.println(p.getId() + " : " + p.getName());
 		}
 	}
 
-	private static void printAllPlayerInfo() {
+	private void printAllPlayerInfo() {
 		for(Player p : playerService.getPlayers()) {
 			System.out.println(p);
 		}

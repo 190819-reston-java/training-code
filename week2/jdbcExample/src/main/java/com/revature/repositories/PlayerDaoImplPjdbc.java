@@ -1,10 +1,12 @@
 package com.revature.repositories;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import com.revature.model.Player;
 import com.revature.utils.ConnectionUtil;
 import com.revature.utils.StreamCloser;
 
-public class PlayerDAOImplPJDBC implements PlayerDAO {
+public class PlayerDaoImplPjdbc implements PlayerDao {
 
 	/**
 	 * Return a player found via their id, or null if no player is found.
@@ -209,6 +211,23 @@ public class PlayerDAOImplPJDBC implements PlayerDAO {
 				resultSet.getLong("num"), 
 				resultSet.getString("position"),
 				resultSet.getDouble("batting_average"));
+	}
+
+	@Override
+	public void demoCallableStatement() {
+		Connection conn = null;
+		CallableStatement callStmt = null;
+		try {
+			conn = ConnectionUtil.getConnection();
+			callStmt = conn.prepareCall("{ ? = CALL LOWER( ? ) }");
+			callStmt.registerOutParameter(1, Types.VARCHAR);
+			callStmt.setString(2, "MY UPPERCASE STRING");
+			callStmt.execute();
+			System.out.println(callStmt.getString(1));
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

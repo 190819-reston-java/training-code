@@ -229,5 +229,28 @@ public class PlayerDaoImplPjdbc implements PlayerDao {
 		}
 		
 	}
+
+	@Override
+	public void demoSQLInjection(String dangerousString) {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet resultSet = null;
+		try {
+			conn = ConnectionUtil.getConnection();
+			stmt = conn.createStatement();
+			stmt.executeQuery("SELECT * FROM players WHERE name = '" + dangerousString + "';");
+			resultSet = stmt.getResultSet();
+			while(resultSet.next()) {
+				System.out.println(resultSet.getString("name"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			StreamCloser.close(resultSet);
+			StreamCloser.close(stmt);
+			StreamCloser.close(conn);
+		}
+		
+	}
 	
 }

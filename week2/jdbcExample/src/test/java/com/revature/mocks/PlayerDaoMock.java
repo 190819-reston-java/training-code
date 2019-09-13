@@ -45,4 +45,10 @@ public class PlayerDaoMock implements PlayerDao {
 
 	}
 
+	@Override
+	public void demoSQLInjection(String dangerousString) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

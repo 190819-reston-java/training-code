@@ -28,5 +28,11 @@ public interface PlayerDao {
 	 * This method solely exists to demo CallableStatements and should not be used.
 	 */
 	void demoCallableStatement();
+	
+	/**
+	 * This method solely exists to demo SQL Injection and should not be used.
+	 * @param dangerousString
+	 */
+	void demoSQLInjection(String dangerousString);
 
 }

@@ -16,7 +16,8 @@
 
     <!-- Other tags that can go here: more meta tags,
         author, description, links to style or JS -->
-
+    
+    <link rel="stylesheet" href="form.css">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
 
     <h6>Header 6, the "smallest"</h6>
 
-    <img src="https://upload.wikimedia.org/wikipedia/en/9/95/Yuri_Knorozov.jpg" alt="Image Not Loaded :("/>
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/95/Yuri_Knorozov.jpg" alt="Image Not Loaded :(" />
     <img title="Our Photo" src="Yuri_Knorozov.jpg" alt="Image not found" />
 
     <!-- Super important: a tags, "anchor" tags
@@ -44,7 +45,7 @@
 
     <!-- Lots of options for structured content:
         lists, tables, etc -->
-    
+
     <ol>
         <li>List item 1</li>
         <li>List item 2</li>
@@ -61,7 +62,7 @@
     <!-- Tables: -->
     <table>
         <thead>
-            <tr> 
+            <tr>
                 <th>Header 1</th>
                 <th>Header 2</th>
             </tr>
@@ -88,9 +89,87 @@
     </p>
 
     <blockquote>
-        A long amount of quoted text goes in a blockquote
+        A long amount of quoted text goes in a blockquote.
     </blockquote>
 
-</body>
+    <!-- Inline v block display: -->
+    <ul>
+        <li>This is <em>Emphasized</em></li>
+        <li>This is <strong>Strong</strong></li>
+        <li>This is <u>Underlined</u></li>
+    </ul>
 
-</html>
+    <!-- Two essential elements (pre-HTML5) are: -->
+    <div class="myclass">
+        <p>div is generic block element</p>
+        <p>span <span>is generic inline element</span></p>
+    </div>
+
+    <select>
+        <option>Option A</option>
+        <option>Option B</option>
+        <option>Option III</option>
+    </select>
+
+    <!-- HTML5 introduced two new types of tags -->
+    <!-- "flash-replacement" tags -->
+    <!-- each of these works with a src and can be 
+        modified/interacted with using JS -->
+    <video src="http://dl5.webmfiles.org/elephants-dream.webm" controls="controls"></video>
+    <video src="http://dl5.webmfiles.org/elephants-dream.webm"></video>
+
+    <audio autoplay controls></audio>
+    <canvas></canvas>
+
+    <!-- shorthand for attributes -->
+    <!-- if you just type the attribute name without
+    a value, the value IS the attribute name -->
+
+    <!-- Other new HTML5 tags: Semantic tags -->
+    <!-- Like divs, but with innate meaning -->
+    <header>Header</header>
+    <nav>Navigation</nav>
+    <section>Section</section>
+    <main>Main content</main>
+    <aside>Asides</aside>
+
+    <!-- One more IMPORTANT component: forms! -->
+    <form method="GET" action="www.google.com">
+        <input type="text" name="textInput">
+
+        <input type="number" name="numberInput">
+
+        <input type="file" name="fileInput">
+
+        <!-- label field with label elements -->
+        <label>Username:
+            <input type="username" name="user">
+        </label>
+        <label for="pass">Password:</label>
+        <input type="password" name="pass">
+
+        <input type="email" name="mail" placeholder="myEmail@Example.com">
+
+        <ul>
+            <li>
+                <label>1
+                    <input type="radio" name="myRadio" value="1">
+                </label>
+            </li>
+            <li>
+                <label>2
+                    <input type="radio" name="myRadio" value="2">
+                </label>
+            </li>
+            <li>
+                <label>3
+                    <input type="radio" name="myRadio" value="3">
+                </label>
+            </li>
+        </ul>
+
+        <input type="text" name="myValidText" placeholder="hello" minlength="4" maxlength="10" required>
+
+        <input type="submit">
+    
+    </form> </body> </html>

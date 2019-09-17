@@ -1,0 +1,39 @@
+
+li {
+    display: inline-block;
+    font-size: 20px;
+}
+
+p {
+    color:blue;
+    background-color: aquamarine;
+}
+
+body {
+    font-size: 30px;
+    letter-spacing: 7px;
+    word-spacing: 30px;
+    background-color: lime;
+    margin: 0px;
+}
+
+.item {
+    color: purple;
+}
+
+.paragraph {
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+#unique {
+    background-color: blanchedalmond;
+    padding: 10px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+#myid {
+    border: 5px solid blue;
+    background-color: yellow;
+}

@@ -1,0 +1,16 @@
+li {
+    display: inline-block;
+    width: 100px;
+    padding: 30px;
+    border: 5px solid blue;
+    background-color: lightblue;
+}
+
+nav {
+    border-bottom: 5px solid black;
+
+}
+
+body {
+    margin: 0px;
+}

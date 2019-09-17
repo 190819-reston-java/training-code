@@ -15,7 +15,8 @@ public class DemoDriver {
 	
 	private static Scanner sc = new Scanner(System.in);
 
-	public static void main(String[] args) {
+	public static void 
+fakemain(String[] args) {
 		PlayerDao playerDao = new PlayerDaoImplPjdbc();
 		
 		System.out.println("Please give name to find in DB:");
@@ -24,7 +25,7 @@ public class DemoDriver {
 		// Then we can affect the database however we like.
 		//More common is:
 		// ';DROP TABLE players;SELECT '
-		//playerDao.demoSQLInjection(sc.nextLine());
+		playerDao.demoSQLInjection(sc.nextLine());
 		
 	}
 	

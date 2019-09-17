@@ -60,6 +60,8 @@ public class PlayerCli {
 	}
 	
 	private void askUserForNewPlayerDetails() {
+		
+		
 		//hacky
 		Player sp = playerService.getSelectedPlayer();
 		

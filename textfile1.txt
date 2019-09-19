@@ -1,5 +1,13 @@
+
 Here are some lines
 Now is the time for all good men to come to the aid of their 
 country
 the quick brown fox jumped over the lazy dog
 We're going to have merge conflicts with them
+
+Hello :)
+
+HERE ARE SOME LINES
+THEY ARE NICE LINES
+SOMETHING ABOUT MERGE CONFLICTS WAS HERE
+

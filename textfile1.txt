@@ -1,3 +1,3 @@
-Here are some lines
-They're nice lines
-We're going to have merge conflicts with them
+HERE ARE SOME LINES
+THEY ARE NICE LINES
+SOMETHING ABOUT MERGE CONFLICTS WAS HERE

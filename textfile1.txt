@@ -1,3 +1,5 @@
 Here are some lines
-They're nice lines
+Now is the time for all good men to come to the aid of their 
+country
+the quick brown fox jumped over the lazy dog
 We're going to have merge conflicts with them

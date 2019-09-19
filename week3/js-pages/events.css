@@ -1,0 +1,17 @@
+#innermost {
+    background-color: blue;
+}
+
+#inner {
+    background-color: lightblue;
+}
+
+#outer {
+    background-color: lightgray;
+}
+
+#outer, #outer div {
+    border: 2px solid black;
+    position: relative;
+    padding:20px;
+}

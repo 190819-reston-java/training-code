@@ -1,0 +1,3 @@
+Here are some lines
+They're nice lines
+We're going to have merge conflicts with them

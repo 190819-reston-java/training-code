@@ -18,7 +18,7 @@
     <a class="nav-link" href="template.html">Template Page</a>
     <a class="nav-link" href="events.html">Events</a>
     <a class="nav-link active" href="api-query.html">SWAPI Query</a>
-    
+
   </nav>
   <div class="jumbotron">
     <div class="row">
@@ -42,8 +42,13 @@
           <input type="number" name="idNum">
           <label for="swapiType">Type of query</label>
           <select name="swapiType">
+            <option>films</option>
             <option>people</option>
             <option>planets</option>
+            <option>species</option>
+            <option>starships</option>
+            <!-- SWAPI claims vehicles exists but non-functional: -->
+            <!-- <option>vehicles</option> -->
           </select>
           <input type="submit">
         </form>

@@ -2,10 +2,12 @@ body {
     background-color: rgb(247, 247, 247);
 }
 
+/* Modify existing Bootstrap style */
 .jumbotron {
     padding: 10px;
 }
 
+/* Keep all demo styles inside the demo container: */
 .demo p {
     display: block;
     text-align: center;

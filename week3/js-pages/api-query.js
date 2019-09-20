@@ -10,28 +10,26 @@ swapiForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // Grab the values input by the user
-  let num = swapiForm.idNum.value;
   let type = swapiForm.swapiType.value;
-  console.log(`User input received: ${num}, ${type}`);
+  let num = swapiForm.idNum.value;
+  console.log(`User input received:  ${type}, ${num}`);
 
-  getSwapiPerson(num, (jsonString) => {
-    let swapiPerson = JSON.parse(jsonString);
-    console.log(swapiPerson);
+  getSwapiObject(type, num, (jsonString) => {
+    let swapiObject = JSON.parse(jsonString);
+    console.log(swapiObject);
 
     swapiResults.innerHTML = "";
 
     //for-in to loop through keys on object
-    for(let k in swapiPerson) {
+    for(let k in swapiObject) {
       let resultItem = document.createElement("li");
-      resultItem.innerText = `${k} : ${swapiPerson[k]}`;
+      resultItem.innerText = `${k} : ${swapiObject[k]}`;
       swapiResults.appendChild(resultItem);
     }
   });
 });
 
-function getSwapiPerson(num, onSuccess) {
-  // demo passing around functions:
-  // onSuccess(`{"num":${num}}`);
+function getSwapiObject(type, num, onSuccess) {
 
   // This object is provided by the browser to let us do AJAX
   let xhr = new XMLHttpRequest();
@@ -56,7 +54,7 @@ function getSwapiPerson(num, onSuccess) {
   });
 
   // prepares the request for sending
-  xhr.open("get", `https://www.swapi.co/api/people/${num}`);
+  xhr.open("get", `https://www.swapi.co/api/${type}/${num}`);
 
   // actually sends the request
   xhr.send();

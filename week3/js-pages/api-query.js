@@ -9,9 +9,10 @@ swapiForm.addEventListener("submit", (event) => {
   // Prevent default form submission
   event.preventDefault();
 
-  // Grab the value input by the user
-  let num = swapiForm.personNum.value;
-  console.log(`User input received: ${num}`);
+  // Grab the values input by the user
+  let num = swapiForm.idNum.value;
+  let type = swapiForm.swapiType.value;
+  console.log(`User input received: ${num}, ${type}`);
 
   getSwapiPerson(num, (jsonString) => {
     let swapiPerson = JSON.parse(jsonString);
@@ -39,7 +40,8 @@ function getSwapiPerson(num, onSuccess) {
   // ready state of 4 means we have the response
   xhr.addEventListener("readystatechange", () => {
     // Here we can do granualar things, but we'll just check for 4
-    if(xhr.readyState === 4) {
+    //console.log(xhr.readyState);
+    if(xhr.readyState === xhr.DONE) {
       let response = xhr.response;
       console.log(`Response received: ${response}`);
 

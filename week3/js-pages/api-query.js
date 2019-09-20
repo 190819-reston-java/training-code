@@ -15,6 +15,8 @@ swapiForm.addEventListener("submit", (event) => {
   getSwapiPerson(num, (jsonString) => {
     let swapiPerson = JSON.parse(jsonString);
     console.log(swapiPerson);
+    document.title = swapiPerson.name;
+    document.body.style.backgroundColor = swapiPerson["hair_color"];
   });
 
 });

@@ -3,6 +3,7 @@
 console.log("Hi from api-query.js!");
 
 let swapiForm = document.getElementById("swapi-form");
+let swapiResults = document.getElementById("swapi-results");
 
 swapiForm.addEventListener("submit", (event) => {
   // Prevent default form submission
@@ -15,10 +16,16 @@ swapiForm.addEventListener("submit", (event) => {
   getSwapiPerson(num, (jsonString) => {
     let swapiPerson = JSON.parse(jsonString);
     console.log(swapiPerson);
-    document.title = swapiPerson.name;
-    document.body.style.backgroundColor = swapiPerson["hair_color"];
-  });
 
+    swapiResults.innerHTML = "";
+
+    //for-in to loop through keys on object
+    for(let k in swapiPerson) {
+      let resultItem = document.createElement("li");
+      resultItem.innerText = `${k} : ${swapiPerson[k]}`;
+      swapiResults.appendChild(resultItem);
+    }
+  });
 });
 
 function getSwapiPerson(num, onSuccess) {

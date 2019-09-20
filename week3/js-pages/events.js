@@ -1,5 +1,6 @@
 'use strict';
 
+// Multiple ways to select elements:
 let innermost = document.getElementById("innermost");
 let inner = document.querySelector("#inner");
 let outer = document.querySelector("#outer");
@@ -22,11 +23,11 @@ inner.addEventListener("click",
 outer.addEventListener("click",
   alertClick("Outer was clicked : bubble"));
 
+innermost.addEventListener("click",
+  alertClick("Innermost was clicked : capture"), true);
+
 inner.addEventListener("click",
   alertClick("Inner was clicked : capture"), true);
 
 outer.addEventListener("click",
   alertClick("Outer was clicked : capture"), true);
-
-innermost.addEventListener("click",
-  alertClick("Innermost was clicked : capture"), true);

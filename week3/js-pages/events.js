@@ -5,7 +5,7 @@ let inner = document.querySelector("#inner");
 let outer = document.querySelector("#outer");
 
 let alertClick = (message) => {
-    return (event) => { alert(message); };
+  return (event) => { alert(message); };
 };
 
 // innermost.addEventListener("click", (event) => {
@@ -14,19 +14,19 @@ let alertClick = (message) => {
 // });
 
 innermost.addEventListener("click",
-    alertClick("Innermost was clicked : bubble"));
+  alertClick("Innermost was clicked : bubble"));
 
 inner.addEventListener("click",
-    alertClick("Inner was clicked : bubble"));
+  alertClick("Inner was clicked : bubble"));
 
 outer.addEventListener("click",
-    alertClick("Outer was clicked : bubble"));
+  alertClick("Outer was clicked : bubble"));
 
 inner.addEventListener("click",
-    alertClick("Inner was clicked : capture"), true);
+  alertClick("Inner was clicked : capture"), true);
 
 outer.addEventListener("click",
-    alertClick("Outer was clicked : capture"), true);
+  alertClick("Outer was clicked : capture"), true);
 
 innermost.addEventListener("click",
-    alertClick("Innermost was clicked : capture"), true);
+  alertClick("Innermost was clicked : capture"), true);

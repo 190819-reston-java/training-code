@@ -8,18 +8,17 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css" type="text/css">
-  <title>JS Pages</title>
+  <title>DOM Manipulation</title>
 </head>
 
 <body>
   <nav class="navbar nav-pills navbar-expand-sm">
     <a class="navbar-brand" href="index.html">JS Pages</a>
-    <a class="nav-link active" href="index.html">Home</a>
+    <a class="nav-link" href="index.html">Home</a>
     <a class="nav-link" href="template.html">Template Page</a>
     <a class="nav-link" href="events.html">Events</a>
-    <a class="nav-link" href="DOM.html">DOM Manipulation</a>
-    <!-- Extra link on the homepage to go to grid demo: -->
-    <a class="nav-link" href="../grid-demo/index.html">To Grid Demo</a>
+    <a class="nav-link active" href="DOM.html">DOM Manipulation</a>
+    
   </nav>
   <div class="jumbotron">
     <div class="row">
@@ -34,20 +33,21 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-6">
-        <p>
-          This is the home page for a number of JS demos.
-          Follow the links along the top to explore
-          language features.  You can also check out
-          a Bootstrap grid demo on another page.
-        </p>
+      <div class="col-md-4">
+        <h2>On this page, open the console.</h2>
       </div>
-      <div class="col-6">
+      <div class="col-md-8">
         <p>
-          If you want to add new pages to this site, start
-          by copying the template page.  Make sure to update
-          the navbar once you're done.
+          We can manipulate the DOM by selecting elements and
+          modifying their attributes OR their contents.  We can
+          also add event listeners for interactivity.
         </p>
+        <div class="dom-demo">
+          <h1 id="main-text">
+            This is the starting text
+          </h1>
+          <button class="btn">Click Me</button>
+        </div>
       </div>
     </div>
   </div>

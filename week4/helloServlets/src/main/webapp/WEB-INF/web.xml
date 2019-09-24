@@ -5,9 +5,26 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
+  <context-param>
+  	<param-name>cheese</param-name>
+  	<param-value>Gorgonzola</param-value>
+  </context-param>
+  
   <servlet>
   	<servlet-name>Hello</servlet-name>
   	<servlet-class>com.revature.hello.HelloServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Param</servlet-name>
+  	<servlet-class>com.revature.hello.ParamServlet</servlet-class>
+  	<!-- Config params go in here, under the init-param tag: -->
+  	<init-param>
+  		<param-name>apple</param-name>
+  		<param-value>Fuji</param-value>
+  	</init-param>
+  	<!-- Specify the order of eager loading, starting at 0: -->
+  	<load-on-startup>0</load-on-startup>
   </servlet>
   
   <servlet-mapping>
@@ -19,4 +36,10 @@
   	<servlet-name>Hello</servlet-name>
   	<url-pattern>/goodbye</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Param</servlet-name>
+  	<url-pattern>/foodstuffs</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

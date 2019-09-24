@@ -21,14 +21,19 @@ public class HelloServlet extends HttpServlet {
 		//when we write to the response, we use a PrintWriter
 		PrintWriter pw = resp.getWriter();
 		//whatever we write using pw will go in the body of the response
-		pw.write("Writing to response from HelloServlet."
-				+ " Has happened " + ++count + " times");
+		pw.write("<p>Writing to response from HelloServlet."
+				+ " Has happened " + ++count + " times</p>"
+				+ "<a href=\"/helloServlets\">Go Back\\</a>");
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userText = req.getParameter("userText");
 		System.out.println("Received in POST: " + userText);
+		
+		resp.getWriter().write("hi from before redirect");
+		
+		resp.sendRedirect("/helloServlets");
 	}
 
 }

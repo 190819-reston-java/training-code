@@ -23,7 +23,12 @@ public class HelloServlet extends HttpServlet {
 		//whatever we write using pw will go in the body of the response
 		pw.write("Writing to response from HelloServlet."
 				+ " Has happened " + ++count + " times");
-		//super.doGet(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String userText = req.getParameter("userText");
+		System.out.println("Received in POST: " + userText);
 	}
 
 }

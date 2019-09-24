@@ -1,6 +1,9 @@
 #Connection creds:
 connection.properties
 
+#Servers folder:
+week4/Servers/
+
 # Created by https://www.gitignore.io/api/java,maven,eclipse,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=java,maven,eclipse,visualstudiocode
 

@@ -6,7 +6,10 @@ let inner = document.querySelector("#inner");
 let outer = document.querySelector("#outer");
 
 let alertClick = (message) => {
-  return (event) => { alert(message); };
+  return (event) => {
+    alert(message);
+    console.log(event);
+  }
 };
 
 // innermost.addEventListener("click", (event) => {

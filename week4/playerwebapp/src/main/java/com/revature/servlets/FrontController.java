@@ -51,25 +51,37 @@ public class FrontController extends HttpServlet {
 			resp.sendError(404, "Token not recognized: " + tokens[0]);
 			break;
 		}
-
 	}
 
 	private void handlePlayers(
 			HttpServletRequest req, HttpServletResponse resp, String[] tokens
 			) throws ServletException, IOException {
-		ObjectMapper om = new ObjectMapper();
-		// Check if further tokens follow /players:
-		if (tokens.length == 1) {
-			// We'll return here to use Jackson
-			PrintWriter pw = resp.getWriter();
-			String jsonPlayers = om.writeValueAsString(playerService.getPlayers());
-			pw.write(jsonPlayers);
-		} else {
-			PrintWriter pw = resp.getWriter();
-			String jsonPlayer = om.writeValueAsString(playerService.getPlayer(tokens[1]));
-			pw.write(jsonPlayer);
-		}
 		
+		ObjectMapper om = new ObjectMapper();
+		PrintWriter pw = resp.getWriter();
+		
+		switch(req.getMethod()) {
+		case "GET":
+			// Check if further tokens follow /players:
+			if (tokens.length == 1) {
+				String jsonPlayers = om.writeValueAsString(playerService.getPlayers());
+				pw.write(jsonPlayers);
+			} else {
+				String jsonPlayer = om.writeValueAsString(playerService.getPlayer(tokens[1]));
+				pw.write(jsonPlayer);
+			}
+			break;
+		case "POST":
+			//We'll read JSON from the request body
+			System.out.println(
+					om.readValue(req.getReader(), Player.class));
+		}
+			
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
 	}
 
 }

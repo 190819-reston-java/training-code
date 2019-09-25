@@ -19,6 +19,11 @@ public class Player {
 		this.battingAverage = battingAverage;
 	}
 	
+	//Required for Jackson
+	public Player() {
+		super();
+	}
+	
 	public long getId() {
 		return id;
 	}

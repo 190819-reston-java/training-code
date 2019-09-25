@@ -10,8 +10,19 @@
   	<servlet-class>com.revature.servlets.DemoServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>FC</servlet-name>
+  	<servlet-class>com.revature.servlets.FrontController</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>Demo</servlet-name>
   	<url-pattern>/demo</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>FC</servlet-name>
+  	<url-pattern>/api/*</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

@@ -81,5 +81,13 @@ public class PlayerService {
 		playerDao.updatePlayer(selectedPlayer);
 	}
 
+	public Player getPlayer(String string) {
+		try {
+			return playerDao.getPlayer(Long.parseLong(string));
+		} catch (NumberFormatException e) {
+			return playerDao.getPlayer(string);
+		}
+	}
+
 	
 }

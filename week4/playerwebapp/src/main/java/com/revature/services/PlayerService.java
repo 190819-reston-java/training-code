@@ -88,6 +88,13 @@ public class PlayerService {
 			return playerDao.getPlayer(string);
 		}
 	}
-
+	
+	public boolean createPlayer(Player player) {
+		return playerDao.createPlayer(player);
+	}
+	
+	public boolean updatePlayer(Player player) {
+		return playerDao.updatePlayer(player);
+	}
 	
 }

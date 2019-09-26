@@ -60,6 +60,8 @@ public class FrontController extends HttpServlet {
 		ObjectMapper om = new ObjectMapper();
 		PrintWriter pw = resp.getWriter();
 		
+		Player player = null;
+		
 		switch(req.getMethod()) {
 		case "GET":
 			// Check if further tokens follow /players:
@@ -73,14 +75,41 @@ public class FrontController extends HttpServlet {
 			break;
 		case "POST":
 			//We'll read JSON from the request body
-			System.out.println(
-					om.readValue(req.getReader(), Player.class));
+			player = om.readValue(req.getReader(), Player.class);
+			//This should definitely be more informative.
+			if(!playerService.createPlayer(player)) {
+				resp.sendError(400, "Failed to create player");
+			} else {
+				pw.write("Successful creation");
+			}
+			break;
+		case "PUT":
+			player = om.readValue(req.getReader(), Player.class);
+			if(tokens.length > 1) {
+				try {
+					player.setId(Long.parseLong(tokens[1]));
+				}catch (NumberFormatException e) {
+					resp.sendError(400, "Must PUT to a valid ID.  PUT by name is not supported.");
+				}
+			}
+			
+			if(!playerService.updatePlayer(player)) {
+				resp.sendError(400, "Failed to update player");
+			} else {
+				pw.write("Successful update");
+			}
+			break;
 		}
 			
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
 	}
 

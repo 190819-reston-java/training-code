@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SecretPageComponent } from './secret-page/secret-page.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { SummaryPageComponent } from './summary-page/summary-page.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "secret",
     component: SecretPageComponent,
+  },
+  {
+    path: "summary",
+    component: SummaryPageComponent,
   },
 ];
 

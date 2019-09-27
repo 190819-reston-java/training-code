@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecretSquareComponent implements OnInit {
 
+  message : string = "Hi from REDACTED :)";
+
   constructor() { }
 
   ngOnInit() {

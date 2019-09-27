@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SecretService } from '../secret.service';
 
 @Component({
   selector: 'app-secret-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecretPageComponent implements OnInit {
 
-  constructor() { }
+  //Dependency inject SecretService:
+  // you need the private, you need the type, the name can change
+  constructor(private secretService : SecretService) { }
 
   ngOnInit() {
+    console.log(this.secretService.getClearance());
   }
 
 }

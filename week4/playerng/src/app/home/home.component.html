@@ -1,2 +1,3 @@
 <p>Welcome!</p>
-<app-secret-square></app-secret-square>
+<!-- Structural directive *ngIf only renders if the condition is true -->
+<app-secret-square *ngIf="secretService.getClearance()>=3"></app-secret-square>

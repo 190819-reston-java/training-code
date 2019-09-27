@@ -1,1 +1,18 @@
-<p>players-table works!</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Batting Average</th>
+      <th>Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{player.name}}</td>
+      <td>{{player.num}}</td>
+      <td>{{player.battingAverage}}</td>
+      <td>{{player.position}}</td>
+    </tr>
+  </tbody>
+</table>

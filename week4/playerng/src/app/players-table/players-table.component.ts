@@ -17,7 +17,7 @@ export class PlayersTableComponent implements OnInit {
   // setup and teardown components
   ngOnInit() {
     this.playerHttp.getPlayers().subscribe(
-      console.log,
+      (data)=>{this.players = data;},
       console.error
     );
   }

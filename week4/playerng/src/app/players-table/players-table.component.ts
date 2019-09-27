@@ -14,10 +14,10 @@ export class PlayersTableComponent implements OnInit {
   constructor(private playerHttp : PlayerHttpService) { }
 
   //This guy is a lifecycle hook.  We have 7(?) to granularly
-  // setup and teardown component
+  // setup and teardown components
   ngOnInit() {
     this.playerHttp.getPlayers().subscribe(
-      (data)=>{console.log(data);},
+      console.log,
       console.error
     );
   }

@@ -1,2 +1,14 @@
 <app-searchbar></app-searchbar>
-<p>display-table works!</p>
+<table class="table-bordered table-striped table">
+  <thead>
+    <tr>
+      <th *ngFor="let key of templateKeys">{{key}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let obj of objects">
+      <td *ngFor="let key of templateKeys">{{obj[key]}}</td>
+    </tr>
+  </tbody>
+</table>
+<p>Diagnostic : {{ objects | json }}, {{ templateKeys | json }}</p>

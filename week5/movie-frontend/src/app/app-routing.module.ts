@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path : "directors",
     component : DirectorsDashComponent,
-  }
+  },
 ];
 
 @NgModule({

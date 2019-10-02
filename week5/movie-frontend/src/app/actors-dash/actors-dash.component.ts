@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieHttpService } from '../movie-http.service';
 
 @Component({
   selector: 'app-actors-dash',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActorsDashComponent implements OnInit {
 
-  constructor() { }
+  actorList : any;
+
+  constructor(private movieHttp : MovieHttpService) { }
 
   ngOnInit() {
+    this.movieHttp.getActors().subscribe(
+      (data)=>{
+        this.actorList = data;
+      },
+      console.error
+    );
   }
 
 }

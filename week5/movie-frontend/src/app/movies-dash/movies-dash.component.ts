@@ -8,7 +8,7 @@ import { MovieHttpService } from '../movie-http.service';
 })
 export class MoviesDashComponent implements OnInit {
 
-  movieList : any = [{"title":3},{"title":5}];
+  movieList : any;
 
   constructor(private movieHttp :MovieHttpService) { }
 

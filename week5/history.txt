@@ -1,0 +1,253 @@
+    1  ls
+    2  sudo yum update
+    3  clear
+    4  history
+    5  ls -a
+    6  cd /bin/
+    7  ls
+    8  ls | grep cd
+    9  echo $PATH
+   10  clear
+   11  pwd
+   12  ls /
+   13  clear
+   14  pwd
+   15  cd /
+   16  ls
+   17  cd
+   18  touch myFile
+   19  ls
+   20  ls -l
+   21  clear
+   22  ls
+   23  mkdir myDir
+   24  ls
+   25  touch myDir/myotherfile
+   26  ls myDir/
+   27  cat myFile 
+   28  nano myFile
+   29  cat myFile 
+   30  cat myFile | grep NANO
+   31  cat myFile | grep O
+   32  man grep
+   33  fmasdfklnsadk
+   34  clear
+   35  grep O myFile 
+   36  ls
+   37  rm myDir
+   38  rm -r myDir
+   39  ls
+   40  rm myFile 
+   41  ls
+   42  ls -al
+   43  clear
+   44  touch myPermissionsFile
+   45  ls
+   46  ls -l
+   47  man chmod
+   48  ls -l
+   49  chmod 777 myPermissionsFile 
+   50  ls -l
+   51  chmod 000 myPermissionsFile 
+   52  ls -l
+   53  cat myPermissionsFile 
+   54  chmod 740 myPermissionsFile 
+   55  ls -l
+   56  cat myPermissionsFile 
+   57  clear
+   58  sudo
+   59  man sudo
+   60  clear
+   61  java
+   62  javac
+   63  sudo yum search java
+   64  sudo yum install java-1.8.0-openjdk-devel.x86_64
+   65  java
+   66  clear
+   67  history
+   68  java
+   69  javac
+   70  clear
+   71  java --version
+   72  java -version
+   73  clear
+   74  sudo yum search tomcat
+   75  sudo yum search all tomcat
+   76  sudo yum search tomcat9
+   77  clear
+   78  nano HelloWorld.java
+   79  javac HelloWorld.java 
+   80  java HelloWorld
+   81  ls
+   82  rm myPermissionsFile 
+   83  git
+   84  sudo yum install git
+   85  git
+   86  git clone https://github.com/190819-reston-java/training-code.git
+   87  clear
+   88  ls
+   89  history
+   90  ls
+   91  sudo yum search tomcat
+   92  clear
+   93  exit
+   94  sudo yum search maven
+   95  sudo yum install tomcat8-webapps
+   96  tomcat8
+   97  yum install tomcat
+   98  sudo yum install tomcat
+   99  amazon-linux-extras list
+  100  sudo amazon-linux-extras install tomcat8.5
+  101  ls
+  102  sudo service tomcat8.5 start
+  103  sudo service tomcat start
+  104  sudo service tomcat stop
+  105  sudo yum install maven
+  106  mvn
+  107  sudo yum remove maven
+  108  clear
+  109  exit
+  110  ls /var/lib/tomcats/
+  111  ls /var/lib/tomcat/
+  112  ls /var/lib/tomcat/webapps/
+  113  exit
+  114  clear
+  115  sudo yum search tomcat
+  116  amazon-linux-extras list
+  117  sudo amazon-linux-extras install tomcat8.5
+  118  cat .bashrc 
+  119  echo amazon-linux-extras
+  120  clear
+  121  sudo service start tomcat
+  122  sudo service tomcat start
+  123  sudo amazon-linux-extras install tomcat8.5
+  124  sudo service tomcat start
+  125  history
+  126  whereis tomcat
+  127  sudo service start tomcat
+  128  sudo service tomcat start
+  129  clear
+  130  ls
+  131  sudo yum search git
+  132  clear
+  133  java -vaersion
+  134  java -version
+  135  ls
+  136  cd training-code/
+  137  ls
+  138  cd week4
+  139  ls
+  140  cd player
+  141  cd playerwebapp/
+  142  la
+  143  ls
+  144  mvn package
+  145  sudo yum search maven
+  146  sudo yum install maven
+  147  mvn -v
+  148  amazon-linux-extras list
+  149  clear
+  150  sudo yum update maven
+  151  ls
+  152  mvn package
+  153  ls
+  154  ls target/
+  155  ls -l target/
+  156  ls /var/lib/tomcat/webapps/
+  157  cp target/playerwebapp.war /var/lib/tomcat/webapps/
+  158  sudo cp target/playerwebapp.war /var/lib/tomcat/webapps/
+  159  sudo service tomcat restart
+  160  history
+  161  clear
+  162  cd 
+  163  ls
+  164  git clone https://github.com/190819-reston-java/project-1-allen-gworek-llc.git
+  165  ls
+  166  sudo yum search java
+  167  sudo yum install java-1.8.0-openjdk-devel.x86_64
+  168  sudo yum install maven
+  169  sudo amazon-linux-extras install tomcat8.5
+  170  clear
+  171  ls
+  172  cd project-1-allen-gworek-llc/
+  173  ls
+  174  cd project-1/
+  175  ls
+  176  rm -rf target/
+  177  mvn clean package
+  178  ls
+  179  ls target/
+  180  sudo cp target/project-1.war /var/lib/tomcat/webapps/
+  181  sudo service tomcat restart
+  182  cd /
+  183  ls
+  184  ls etc/
+  185  ls var/log/tomcat/
+  186  sudo ls var/log/tomcat/
+  187  sudo cd var/log/tomcat/
+  188  ls
+  189  sudo ls var/log/tomcat/
+  190  sudo cat var/log/tomcat/localhost.2019-10-02.log
+  191  clear
+  192  cd 
+  193  ls
+  194  man scp
+  195  exit
+  196  ls
+  197  exit
+  198  ls
+  199  clear
+  200  ls
+  201  mkdir training-code/week4/playerwebapp/src/main/resources
+  202  mv connection.properties training-code/week4/playerwebapp/src/main/resources/
+  203  ls
+  204  ls training-code/week4/playerwebapp/src/main/resources/
+  205  cd training-code/
+  206  cd week
+  207  cd week4
+  208  ls
+  209  cd player
+  210  cd playerwebapp/
+  211  clear
+  212  ls
+  213  mvn clean package
+  214  sudo cp target/*.war /var/lib/tomcat/webapps/
+  215  rm -f /var/lib/tomcat/webapps/*.war
+  216  sudo rm -f /var/lib/tomcat/webapps/*.war
+  217  sudo cp target/*.war /var/lib/tomcat/webapps/
+  218  sudo service tomcat restart
+  219  clear
+  220  man su
+  221  su
+  222  sudo su
+  223  exit
+  224  ls
+  225  cd training-code/
+  226  ls
+  227  cd week4/
+  228  ls
+  229  cd playerwebapp/
+  230  ls
+  231  nano deploy.sh
+  232  deploy
+  233  deploy.sh
+  234  ls
+  235  ls -l
+  236  sudo chmod 774 deploy.sh 
+  237  ls -l
+  238  deploy.sh
+  239  ./deploy.sh
+  240  cd
+  241  cat training-code/week4/playerwebapp/deploy.sh 
+  242  ls
+  243  cd project-1-allen-gworek-llc/
+  244  ls
+  245  cd project-1/
+  246  ls
+  247  /home/ec2-user/training-code/week4/playerwebapp/deploy.sh 
+  248  cd
+  249  cat training-code/week4/playerwebapp/deploy.sh 
+  250  history
+  251  cd
+  252  ls
+  253  history > history.txt

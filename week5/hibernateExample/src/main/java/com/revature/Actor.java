@@ -2,6 +2,8 @@ package com.revature;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,12 +12,13 @@ import javax.persistence.Table;
  * to specify how this class will be mapped to a relation in an RDBMS
  * @author Revature
  */
-
 @Entity
 @Table(name="actors")
 public class Actor {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private long id;
 	
 	@Column(name="name")

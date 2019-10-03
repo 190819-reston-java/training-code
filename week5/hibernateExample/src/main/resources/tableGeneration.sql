@@ -1,17 +1,13 @@
+DROP TABLE actors;
+DROP TABLE movies;
+DROP TABLE directors;
+
 CREATE TABLE actors (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(300),
 	stage_name VARCHAR(300),
 	height NUMERIC(8,2)
 );
-
-INSERT INTO actors VALUES
-	(DEFAULT, 'Jeff Goldblum', NULL, 6),
-	(DEFAULT, 'Pierce Brosnan', 'Bond', 6.2);
-	
-SELECT * FROM actors;
-
-DROP TABLE actors;
 
 CREATE TABLE directors (
 	id SERIAL PRIMARY KEY,
@@ -26,15 +22,31 @@ CREATE TABLE movies (
 	FOREIGN KEY (director_id) REFERENCES directors(id)
 );
 
-SELECT * FROM directors;
-SELECT * FROM movies;
+CREATE TABLE movie_actor (
+	movie_id INTEGER NOT NULL,
+	actor_id INTEGER NOT NULL,
+	FOREIGN KEY (movie_id) REFERENCES movies(id),
+	FOREIGN KEY (actor_id) REFERENCES actors(id)
+);
+
+INSERT INTO actors VALUES
+	(DEFAULT, 'Jeff Goldblum', NULL, 6),
+	(DEFAULT, 'Pierce Brosnan', 'Bond', 6.2),
+	(DEFAULT, 'Clark Gable', NULL, 5),
+	(DEFAULT, 'Vivien Leigh', NULL, 5),
+	(DEFAULT, 'Judy Garland', NULL, 4);
 
 INSERT INTO directors VALUES 
 	(DEFAULT, 'Victor Fleming'),
 	(DEFAULT, 'Yasujiro Ozu');
 	
 INSERT INTO movies VALUES
-	(DEFAULT, 'Gone With the Wind', 'Action', 2),
-	(DEFAULT, 'The Wizard of Oz', 'Action', 2),
-	(DEFAULT, 'Tokyo Story', 'Action', 3),
-	(DEFAULT, 'Late Spring', 'Action', 3);
+	(DEFAULT, 'Gone With the Wind', 'Action', 1),
+	(DEFAULT, 'The Wizard of Oz', 'Action', 1),
+	(DEFAULT, 'Tokyo Story', 'Action', 2),
+	(DEFAULT, 'Late Spring', 'Action', 2);
+	
+INSERT INTO movie_actor VALUES
+	(1, 3),
+	(1, 4),
+	(2, 5);

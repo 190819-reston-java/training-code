@@ -1,11 +1,18 @@
 package com.revature;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,6 +34,14 @@ public class Movie {
 	@ManyToOne
 	@JoinColumn(name = "director_id")
 	private Director director;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST})
+	@JoinTable(
+			name = "movie_actor",
+			joinColumns = { @JoinColumn( name="movie_id") },
+			inverseJoinColumns = { @JoinColumn( name="actor_id") }
+			)
+	private Set<Actor> actors = new HashSet<>();
 	
 	public Movie() {
 		super();
@@ -62,6 +77,14 @@ public class Movie {
 
 	public void setDirector(Director director) {
 		this.director = director;
+	}
+
+	public Set<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(Set<Actor> actors) {
+		this.actors = actors;
 	}
 
 	@Override

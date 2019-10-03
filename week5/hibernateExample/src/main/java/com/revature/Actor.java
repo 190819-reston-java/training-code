@@ -1,10 +1,15 @@
 package com.revature;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,18 +22,21 @@ import javax.persistence.Table;
 public class Actor {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	@Column( name="id" )
 	private long id;
 	
-	@Column(name="name")
+	@Column( name="name" )
 	private String name;
 	
-	@Column(name="stage_name")
+	@Column( name="stage_name" )
 	private String stageName;
 	
-	@Column(name="height")
+	@Column( name="height" )
 	private double height;
+	
+	@ManyToMany( mappedBy = "actors", fetch = FetchType.LAZY )
+	private Set<Movie> movies = new HashSet<Movie>();
 	
 	public Actor() {
 		super();
@@ -64,6 +72,14 @@ public class Actor {
 
 	public void setHeight(double height) {
 		this.height = height;
+	}
+
+	public Set<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(Set<Movie> movies) {
+		this.movies = movies;
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package com.revature;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -31,12 +32,54 @@ public class Driver {
 		
 		//secondDemo();
 		
-		thirdDemo();
+		//thirdDemo();
+		
+		fourthDemo();
+		
+		//fifthDemo();
 		
 		sf.close();
 		
 	}
 	
+	private static void fifthDemo() {
+		session = sf.openSession();
+		session.beginTransaction();
+		
+		Criteria c = session.createCriteria(Actor.class);
+		
+		System.out.println(c.list());
+		
+		System.out.println(c.add(Restrictions.gt("height", 5.5)).list());
+		
+		//here :var is like a ? in preparedstatement.
+		Query q = session.createQuery("from Actor where height > :var and stageName = :var2");
+		
+		System.out.println(q.setDouble("var", 5.5).setString("var2", "Bond").list());
+		
+		session.getTransaction().commit();
+		
+	}
+
+	private static void fourthDemo() {
+		session = sf.openSession();
+		session.beginTransaction();
+		
+		Movie wind = (Movie) session.get(Movie.class, 1L);
+		
+		System.out.println("Getting Wind:");
+		System.out.println(wind);
+		for(Actor a : wind.getActors()) {
+			System.out.println(a);
+			for(Movie m : a.getMovies()) {
+				System.out.println(m);
+			}
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+	}
+
 	private static void thirdDemo() {
 		session = sf.openSession();
 		session.beginTransaction();

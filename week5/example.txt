@@ -1,0 +1,4 @@
+hit 'i' to go to insert mode
+it lets you type normally
+hit esc to exit insert mode, then you use the keyboard for commands
+type :wq to write then quit (once outside of insert mode)

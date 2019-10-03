@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,10 @@ public class Movie {
 	
 	@Column(name = "genre")
 	private String genre;
+	
+	@ManyToOne
+	@JoinColumn(name = "director_id")
+	private Director director;
 	
 	public Movie() {
 		super();
@@ -50,9 +56,17 @@ public class Movie {
 		this.genre = genre;
 	}
 
+	public Director getDirector() {
+		return director;
+	}
+
+	public void setDirector(Director director) {
+		this.director = director;
+	}
+
 	@Override
 	public String toString() {
-		return "Movie [id=" + id + ", title=" + title + ", genre=" + genre + "]";
+		return "Movie [id=" + id + ", title=" + title + ", genre=" + genre + ", director=" + director.getName() + "]";
 	}
 	
 }

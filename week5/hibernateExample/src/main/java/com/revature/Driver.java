@@ -11,18 +11,77 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 public class Driver {
-
+	
+	private static Configuration configuration;
+	private static StandardServiceRegistryBuilder ssrb;
+	private static SessionFactory sf;
+	private static Session session;
+	
 	public static void main(String[] args) {
 		/*
 		 * This is boilerplate config, provided your configuration is is
 		 * a hibernate.cfg.xml file in resources.
 		 */
-		Configuration configuration = new Configuration().configure();
-		StandardServiceRegistryBuilder ssrb = new StandardServiceRegistryBuilder()
+		configuration = new Configuration().configure();
+		ssrb = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());
-		SessionFactory sf = configuration.buildSessionFactory(ssrb.build());
+		sf = configuration.buildSessionFactory(ssrb.build());
 		
-		Session session = sf.openSession();
+		//firstDemo();
+		
+		//secondDemo();
+		
+		thirdDemo();
+		
+		sf.close();
+		
+	}
+	
+	private static void thirdDemo() {
+		session = sf.openSession();
+		session.beginTransaction();
+		
+		Movie oz = (Movie) session.get(Movie.class, 3L);
+		
+		System.out.println(oz.getDirector().getName());
+		
+		Director ozu = (Director) session.get(Director.class, 3L);
+		System.out.println(ozu);
+		
+		Movie newMovie = new Movie();
+		newMovie.setTitle("Test title");
+		newMovie.setGenre("Mystery");
+		newMovie.setDirector(ozu);
+		
+		session.saveOrUpdate(newMovie);
+		
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+
+	private static void secondDemo() {
+		session = sf.openSession();
+		session.beginTransaction();
+		
+		Director newDirector = new Director();
+		newDirector.setName("Franklin");
+		
+		session.save(newDirector);
+		
+		Movie newMovie = new Movie();
+		newMovie.setTitle("Planet of the Apes");
+		newMovie.setGenre("Action");
+		
+		session.save(newMovie);
+		
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+
+	private static void firstDemo() {
+		session = sf.openSession();
 		session.beginTransaction();
 		
 		Actor newActor = new Actor();
@@ -57,8 +116,6 @@ public class Driver {
 		
 		session.getTransaction().commit();
 		session.close();
-		sf.close();
-		
 	}
 
 }

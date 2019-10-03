@@ -1,10 +1,13 @@
 package com.revature;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,9 @@ public class Director {
 	
 	@Column(name = "name")
 	private String name;
+	
+	@OneToMany(mappedBy = "director")
+	private List<Movie> movies;
 	
 	public Director() {
 		super();
@@ -39,9 +45,17 @@ public class Director {
 		this.name = name;
 	}
 
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
+	}
+
 	@Override
 	public String toString() {
-		return "Director [id=" + id + ", name=" + name + "]";
+		return "Director [id=" + id + ", name=" + name + ", movies=" + movies + "]";
 	}
 	
 }

@@ -5,7 +5,7 @@ public class Player {
 	private long id;
 	private String name;
 	private long num;
-	private String position;
+	private String psition;
 	private double battingAverage;
 	
 	//autogenned getters, setters, constructor, toString:

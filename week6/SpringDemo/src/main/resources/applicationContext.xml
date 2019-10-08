@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- <context:component-scan base-package="com.revature"></context:component-scan> -->
+	
+	<!-- <bean name="user" class="com.revature.models.User">
+	Property tag is used to declare setter injection
+		<property name="account" ref="account"></property>
+		
+		constructor-arg tag used to declare constructor injection
+		<constructor-arg ref="account"></constructor-arg>
+	</bean>
+	<bean name="account" class="com.revature.models.Account"/>
+	
+	<bean name="userService" class="com.revature.services.UserService" autowire="byType"/>
+	<bean name="userRepository" class="com.revature.repositories.UserRepository"/> -->
+
+</beans>

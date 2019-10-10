@@ -1,0 +1,46 @@
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=0] has invoked String com.revature.models.Account.toString() returning Account [amount=0]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=0, firstname=null, lastname=null, account=Account [amount=0]] has invoked String com.revature.models.User.toString()
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=0] has invoked String com.revature.models.Account.toString() returning Account [amount=0]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=0] has invoked String com.revature.models.Account.toString() returning Account [amount=0]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=0, firstname=null, lastname=null, account=Account [amount=0]] has invoked String com.revature.models.User.toString() returning User [id=0, firstname=null, lastname=null, account=Account [amount=0]]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked void com.revature.models.Account.setAmount(int) returning null
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=0, firstname=null, lastname=null, account=Account [amount=500]] has invoked void com.revature.models.User.setAccount(Account)
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=0, firstname=null, lastname=null, account=Account [amount=500]] has invoked void com.revature.models.User.setAccount(Account) returning null
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=0, firstname=null, lastname=null, account=Account [amount=500]] has invoked void com.revature.models.User.setId(int)
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=1, firstname=null, lastname=null, account=Account [amount=500]] has invoked void com.revature.models.User.setId(int) returning null
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=1, firstname=null, lastname=null, account=Account [amount=500]] has invoked void com.revature.models.User.setFirstname(String)
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=1, firstname=Jodie, lastname=null, account=Account [amount=500]] has invoked void com.revature.models.User.setFirstname(String) returning null
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=1, firstname=Jodie, lastname=null, account=Account [amount=500]] has invoked void com.revature.models.User.setLastname(String)
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=500]] has invoked void com.revature.models.User.setLastname(String) returning null
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=500]] has invoked String com.revature.models.User.toString()
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=500]] has invoked String com.revature.models.User.toString() returning User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=500]]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=500]] has invoked Account com.revature.models.User.getAccount()
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=500] has invoked String com.revature.models.Account.toString() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=500]] has invoked Account com.revature.models.User.getAccount() returning Account [amount=500]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=700] has invoked boolean com.revature.models.Account.deposit(int) returning true
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=700] has invoked String com.revature.models.Account.toString() returning Account [amount=700]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=700]] has invoked Account com.revature.models.User.getAccount()
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=700] has invoked String com.revature.models.Account.toString() returning Account [amount=700]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=700] has invoked String com.revature.models.Account.toString() returning Account [amount=700]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=700]] has invoked Account com.revature.models.User.getAccount() returning Account [amount=700]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=200] has invoked boolean com.revature.models.Account.withdraw(int) returning true
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=200] has invoked String com.revature.models.Account.toString() returning Account [amount=200]
+2019-10-10 10:47:26 INFO  LoggingAspect:31 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=200]] has invoked Account com.revature.models.User.getAccount()
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=200] has invoked String com.revature.models.Account.toString() returning Account [amount=200]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=200] has invoked String com.revature.models.Account.toString() returning Account [amount=200]
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - User [id=1, firstname=Jodie, lastname=Conrad, account=Account [amount=200]] has invoked Account com.revature.models.User.getAccount() returning Account [amount=200]
+2019-10-10 10:47:26 WARN  LoggingAspect:55 - Tried to withdraw too much from the account!
+2019-10-10 10:47:26 INFO  LoggingAspect:26 - Account [amount=200] has invoked boolean com.revature.models.Account.withdraw(int) returning false

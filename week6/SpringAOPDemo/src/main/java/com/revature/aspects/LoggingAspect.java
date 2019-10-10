@@ -58,4 +58,23 @@ public class LoggingAspect {
 		
 		return result;
 	}
+	
+	@Around("execution(* * (..))")
+	public Object monitorAll(ProceedingJoinPoint pjp) throws Throwable {
+		long start = System.nanoTime();
+		long end;
+		
+		Object returned = null;
+		try {
+			returned = pjp.proceed();
+			end = System.nanoTime();
+			log.info("Total execution time of " + pjp.getSignature() + " is " + (end - start) + " ns");
+		} catch(Exception e) {
+			end = System.nanoTime();
+			log.info("Total execution time of " + pjp.getSignature() + " is " + (end - start) + " ns");
+			throw e;
+		}
+		
+		return returned;
+	}
 }

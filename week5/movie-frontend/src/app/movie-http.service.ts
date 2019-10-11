@@ -24,4 +24,16 @@ export class MovieHttpService {
     return this.http.get(this.DIRECTORS_URL);
   }
 
+  postDirector(body) {
+    return this.http.post(this.DIRECTORS_URL, body);
+  }
+
+  postActor(body) {
+    return this.http.post(this.ACTORS_URL, body);
+  }
+
+  postMovie(body) {
+    return this.http.post(this.MOVIES_URL, body);
+  }
+
 }

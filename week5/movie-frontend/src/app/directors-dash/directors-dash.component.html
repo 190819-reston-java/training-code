@@ -1,3 +1,4 @@
 <h1>Welcome to Directors Dashboard</h1>
-<app-display-table [objects]="directorList"></app-display-table>
+<app-display-table [objects]="directorList" (keyChange)="handleKeyChange($event)"></app-display-table>
+<app-table-based-form [formInputs]="formInputs"></app-table-based-form>
 <app-director-editor></app-director-editor>

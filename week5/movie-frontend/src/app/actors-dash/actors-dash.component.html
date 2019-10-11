@@ -1,3 +1,4 @@
 <h1>Welcome to Actors Dashboard</h1>
-<app-display-table [objects]="actorList"></app-display-table>
+<app-display-table [objects]="actorList" (keyChange)="handleKeyChange($event)"></app-display-table>
+<app-table-based-form [formInputs]="formInputs"></app-table-based-form>
 <app-actor-editor></app-actor-editor>

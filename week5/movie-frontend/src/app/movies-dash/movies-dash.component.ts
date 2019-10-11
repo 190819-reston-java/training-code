@@ -9,6 +9,7 @@ import { MovieHttpService } from '../movie-http.service';
 export class MoviesDashComponent implements OnInit {
 
   movieList : any;
+  formInputs: any[];
 
   constructor(private movieHttp :MovieHttpService) { }
 
@@ -21,6 +22,10 @@ export class MoviesDashComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  handleKeyChange(event) {
+    this.formInputs = event;
   }
 
 }

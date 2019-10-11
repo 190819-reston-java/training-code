@@ -1,0 +1,9 @@
+<h2>Create New _____ : Please fill out all fields</h2>
+<form style="width: 400px;" (submit)="onSubmit()">
+  <div class="form-group" *ngFor="let formInput of formInputs">
+    <label for="formInput">Field {{formInput}}:</label>
+    <input class="form-control" type="text" [(ngModel)]="model[formInput]" name="formInput">
+  </div>
+  <input type="submit">
+</form>
+Diagnostic: {{model | json}}

@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { ActorEditorComponent } from './actor-editor/actor-editor.component';
 import { DirectorEditorComponent } from './director-editor/director-editor.component';
 import { SignoutComponent } from './signout/signout.component';
+import { TableBasedFormComponent } from './table-based-form/table-based-form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SignoutComponent } from './signout/signout.component';
     LoginComponent,
     ActorEditorComponent,
     DirectorEditorComponent,
-    SignoutComponent
+    SignoutComponent,
+    TableBasedFormComponent
   ],
   imports: [
     BrowserModule,

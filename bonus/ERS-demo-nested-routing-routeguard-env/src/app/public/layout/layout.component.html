@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/">Home</a>
+  <a mat-button routerLink="/login">Login</a>
+  <a mat-button routerLink="/about">About</a>
+  <a mat-button routerLink="/employee">Employee</a>
+  <a mat-button routerLink="/manager">Manager</a>
+  <a mat-button style="float:right;" (click)="logout()">Logout</a>
+</mat-toolbar>
+<div style="width:90%;float:right;">
+  <router-outlet></router-outlet>
+</div>

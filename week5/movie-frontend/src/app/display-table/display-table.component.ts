@@ -23,7 +23,9 @@ export class DisplayTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.templateKeys = Object.keys(this.objects[0]);
+    if(!(this.objects==null)){
+      this.templateKeys = Object.keys(this.objects[0]);
+    }
   }
 
 }

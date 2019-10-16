@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  
+spring:
+  application:
+    name: appcatgateway
+    
+zuul:
+  routes:
+    home:
+      path: /
+      url: http://localhost:8761
+    cats:
+      path: /cat/**
+      service-id: appcat
+    discoverer:
+      path: /discover/**
+      service-id: appcatdiscoverer
+    google:
+      path: /google/**
+      url: http://www.google.com/

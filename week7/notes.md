@@ -202,6 +202,7 @@
 
 # Docker
   * Wildly popular tool used for DevOps.
+  * The **Docker Daemon** runs on your machine and manages docker containers, runs the docker network, and builds docker images.  Start it with sudo service docker start
   * The first use case is to deploy your applications in **Docker Containers**, which allows you to run your application anywhere Docker runs.
   * Runs natively on Linux and has added support for Windows and OSX.
   * A step beyond mvn package in consistent deployment because it ensures the OS and environment are consistent across deployments, in addition to managing dependencies.
@@ -226,5 +227,8 @@
  * Each running Container has a read/write layer on top of the read-only image layers.  All the writing your running application does occurs in this top layer
  * Any files from the read-only layers that are changed are first copied to the read/write layer in that container.  We call this "Copy-On-Write"
  * When we build an image from a Dockerfile, new layers are produced with ADD, COPY, and RUN
-
-
+ 
+ ## Docker Network
+ * The docker daemon, by default, maintains all the running containers on a network on your computer.  We call this the **host** network type
+ * We can also configure Docker to use a **distributed** network, making use of docker containers across multiple computers
+ * If we want our docker container to be accessible outside of our machine, we need to run our container with a "--publish <port>:<port> command to set up port forwarding to the container.

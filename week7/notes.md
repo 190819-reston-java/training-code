@@ -192,3 +192,39 @@
     * Version
     * Header – Meta data, key-values (content length, timestamp, content type, etc)
     * Body
+
+# Virtual Machines
+ * An entire computer, but virtual.  Includes virtual resources (memory, storage, processor), full OS with filesystem, kernel, applications.
+ * Can be built on top of the bare metal, with multiple virtual machines running on a single physical computer.  This is **Type 1 virtualization**.
+ * Can be created on top of another running OS -- we have a **Host OS** on the bare metal running a virtual **Guest OS**.  This is **Type 2 virtualization**.
+ * Managed by a **hypervisor**
+ * EC2s are virtual machines provided by AWS in the cloud.
+
+# Docker
+  * Wildly popular tool used for DevOps.
+  * The first use case is to deploy your applications in **Docker Containers**, which allows you to run your application anywhere Docker runs.
+  * Runs natively on Linux and has added support for Windows and OSX.
+  * A step beyond mvn package in consistent deployment because it ensures the OS and environment are consistent across deployments, in addition to managing dependencies.
+   * Reminder: dependency management tools just find and download versioned dependencies on your system.  While useful, mvn package may work differently on different operating systems or with different environments.
+   
+## Docker Container
+ * A container is just a running process with an attached filesystem and additional encapsulation features.
+ * Containers are similar to Virtual Machines, but much more lightweight.  Docker containers use the kernel of the Host OS and share read-only files between each other, so they use far fewer resources than similarly-configured VMs.
+ * Containers allow us to deploy our apps in the same environment on many different machines -- each container has its own OS (minus kernel) and installed binaries and libraries (programs and resources).  We also set up the environment.
+ * Unlike VMs, Containers don't have a set, provisioned amount of resources.  The resources used/available can change the same as they change for other processes.
+ * Docker Containers are built from Docker Images
+ 
+## Docker Image
+ * A Docker image is a file that contains everything a container needs to run.
+ * Images can include everything from the OS to specific applications, needed files, and environment variables
+ * Docker provides versioning and git-like tools for images, so we can incrementally develop our images and track changes
+ * Docker Hub provides GitHub-like functionality for images, and they provide many official images for users to build on.
+ * Docker images are built from a Dockerfile in a Build Context.  The beginning of the Dockerfile should include a "FROM" where we specify the official image we're building on top of.  This will be the base layer of our image.
+ 
+## Docker Image Layers
+ * Images are built in read-only layers, so multiple docker containers that use the same layers can share resources
+ * Each running Container has a read/write layer on top of the read-only image layers.  All the writing your running application does occurs in this top layer
+ * Any files from the read-only layers that are changed are first copied to the read/write layer in that container.  We call this "Copy-On-Write"
+ * When we build an image from a Dockerfile, new layers are produced with ADD, COPY, and RUN
+
+

@@ -238,7 +238,7 @@
  * Commands to know:
   * build : builds an image from Dockerfile and context
   * run : creates a running container from an image.  Has important flags:
-   * --publish <hostport>:<containerport> : forwards traffic hitting hostport to containerport
+   * --publish `<hostport>:<containerport>` : forwards traffic hitting hostport to containerport
    * --detach : runs this container in the background
    * -it : pipes your stdin and stdout to the countainer, and gives you a nice shell to use inside the container
   * images : show all images available locally
@@ -252,11 +252,11 @@
  * Only FROM, RUN, ADD, and COPY add layers to the image
  * Any command that adds layers will be cached and reused in future builds, if possible
  * Commands to know:
-  * FROM <image> : specify the base image to build on top of.  Often an official image from DockerHub
-  * RUN <command> : runs a command and saves the result as a new layer.  Examples:
-   * RUN apt-get update && apt-get install <package>
-   * RUN mvn package
-  * COPY <hostfile> <containerfile> : copies a file from the build context in the host's filesystem into the image
-  * ADD <hostsource> <containerdestination> : works similarly to COPY, but can take URLs and archived (.tar) files.
-  * EXPOSE <port> : suggest a port to be published.  We still need to docker run with "-p <port>:<port>"
-  * CMD ["<parts>", "<of>", "<command>"] : sets a default command to run when every container built from this image starts up
+  * FROM `<image>` : specify the base image to build on top of.  Often an official image from DockerHub
+  * RUN `<command>` : runs a command and saves the result as a new layer.  Examples:
+   * RUN ```apt-get update && apt-get install <package>```
+   * RUN ```mvn package```
+  * COPY `<hostfile> <containerfile>` : copies a file from the build context in the host's filesystem into the image
+  * ADD `<hostsource> <containerdestination>` : works similarly to COPY, but can take URLs and archived (.tar) files.
+  * EXPOSE `<port>` : suggest a port to be published.  We still need to docker run with "-p `<port>:<port>`"
+  * CMD `["<parts>", "<of>", "<command>"]` : sets a default command to run when every container built from this image starts up

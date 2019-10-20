@@ -52,14 +52,24 @@
   
 ## Netflix OSS for Microservices
   * Eureka Server: Service Registry.  Microservices register their URI and status with Eureka.  Provides failover.
+    * Enable by putting it on the classpath and using `@EnableEurekaServer`
+    * By default hosts on port 8761 and has self-preservation behavior
   * Eureka Client: Discovery Client.  Retrieves the registry from Eureka Server to locate multiple instances of any other service.
+    * Enable by putting it on the classpath and using `@EnableEurekaClient` or `@EnableDiscoveryClient`
+    * By default both registers with Eureka Server and retrieves the registry of other registered services
   * Ribbon: Load balancer.  Any service running Ribbon will balance its outgoing traffic between instances of other services.  Default is round-robin.
+    * Built into Eureka Client, no need to separately include.
   * Zuul: Gateway.  Allows external entities to access resources within the MS network, and filters traffic coming from outside.
+    * Enable by putting it on the classpath and using `@EnableZuulProxy`
+    * Configure routing in application.properties or application.yml
   * Hystrix: Circuit breaker.  Provides immediate fallback response from failing microservices; used to prevent cascading failures.
   * Feign: Http Client.  Allows microservices to easily send HTTP requests to other microservices
+    * Enable by putting OpenFeign on the classpath and using `@EnableFeignClients`
+    * To actually create a Feign Client (something that sends HTTP reqs), annotate an interface with `@FeignClient` and use `@RequestMapping` annotations to specify what requests to send.
   
 ## Spring Cloud MSA tools
   * Config server: provides centralized and version controlled configuration for microservices
+    * Enable by putting it on the classpath, using `@EnableConfigServer`, and adding a git uri in application.properties
   * Spring REST and Spring Data: easily build a RESTful API
   * RabbitMQ: Messaging Queue -- broadcast information to all listening microservices instead of sending many HTTP requests
 
